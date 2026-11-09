@@ -10,7 +10,7 @@
 #include <dt-bindings/zmk/pointing.h>
 
 &mt {
-  tapping-term-ms = <250>; //default is 200ms
+  tapping-term-ms = <500>; //default is 200ms
 };
 
 
@@ -40,7 +40,7 @@
                         bindings = <
    &trans    &kp ESC     &none       &none  &none  &none                        &kp N7   &kp N8   &kp N9    &kp ASTRK   &kp FSLH &none
    &trans    &kp TAB     &kp LSHFT   &none  &none  &kp LS(LG(PSCRN))            &kp N4   &kp N5   &kp N6    &kp PLUS   &kp MINUS   &none 
-   &trans    &kp LCTRL   &none       &none  &none  &none                        &kp N1   &kp N2   &kp N3    &kp DOT    &kp BKSP &none 
+   &trans    &kp LCTRL   &kp LGUI       &kp LALT  &none  &none                        &kp N1   &kp N2   &kp N3    &kp DOT    &kp BKSP &none 
                                     &trans     &trans    &kp SPACE              &kp RET  &kp N0   &mo 3
                         >;
                 };
