@@ -8,11 +8,17 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/pointing.h>
+#include <behaviors/unicode.dtsi>
+#include <zmk-unicode/keys-full.h>
 
 &mt {
-  tapping-term-ms = <500>; //default is 200ms
+  tapping-term-ms = <750>; //default is 200ms
 };
 
+
+&uc {
+  default-mode = <UC_MODE_LINUX>;  // Replace with desired input system.
+};
 
 / {
         keymap {
@@ -40,7 +46,7 @@
                         bindings = <
    &trans    &kp ESC     &none       &none  &none  &none                        &kp N7   &kp N8   &kp N9    &kp ASTRK   &kp FSLH &none
    &trans    &kp TAB     &kp LSHFT   &none  &none  &kp LS(LG(PSCRN))            &kp N4   &kp N5   &kp N6    &kp PLUS   &kp MINUS   &none 
-   &trans    &kp LCTRL   &kp LGUI       &kp LALT  &none  &none                        &kp N1   &kp N2   &kp N3    &kp DOT    &kp BKSP &none 
+   &trans    &kp LCTRL   &kp LGUI       &kp LALT  &none  &none                  &kp N1   &kp N2   &kp N3    &kp DOT    &kp BKSP &none 
                                     &trans     &trans    &kp SPACE              &kp RET  &kp N0   &mo 3
                         >;
                 };
@@ -52,11 +58,19 @@
 // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-   &none &kp  LS(N1)  &kp LS(N2)    &kp LS(N3) &kp LS(N4) &kp LS(N5)          &kp LS(N6)   &kp LS(N7)  &kp LS(N8)   &kp LS(N9) &kp LS(N0) &none
-   &none &kp GRAVE       &kp LEFT         &kp DOWN      &kp RIGHT     &kp UP                 &kp MINUS       &kp EQUAL      &kp LBKT        &kp RBKT      &kp BSLH      &none
-   &none &trans&msc SCRL_DOWN   &msc SCRL_UP  &mkp MB1      &mkp MB2               &mmv MOVE_LEFT  &mmv MOVE_DOWN &mmv MOVE_RIGHT &mmv MOVE_UP  &kp APOS      &none
-                                          &mo 3         &kp LSHFT     &kp SPACE              &kp RET   &trans    &trans 
+   &none &kp  LS(N1) &kp LS(N2)     &kp LS(N3)   &kp LS(N4) &kp LS(N5)          &kp LS(N6)      &kp LS(N7)     &kp LS(N8)      &kp LS(N9)    &kp LS(N0)    &none
+   &none &kp GRAVE   &kp LEFT       &kp DOWN     &kp RIGHT  &kp UP              &kp MINUS       &kp EQUAL      &kp LBKT        &kp RBKT      &kp BSLH      &none
+   &none &trans      &msc SCRL_DOWN &msc SCRL_UP &mkp MB1   &mkp MB2            &mmv MOVE_LEFT  &mmv MOVE_DOWN &mmv MOVE_RIGHT &mmv MOVE_UP  &kp APOS      &none
+                                &mo 3         &kp LSHFT     &kp SPACE           &kp RET   &trans    &trans 
                         >;
                 };
+              greek_lower {
+                bindings = <
+   &none &uc UC_EL_FINAL_SIGMA  &uc UC_EL_EPSILON &uc UC_EL_RHO   &uc UC_EL_TAU   &uc UC_EL_UPSILON    &uc UC_EL_THETA &uc UC_EL_IOTA &uc UC_EL_OMIKRON        &uc UC_EL_PI       &uc UC_INTEGRAL    &none
+   &none &uc UC_EL_ALPHA        &uc UC_EL_SIGMA   &uc UC_EL_DELTA &uc UC_EL_PHI   &uc UC_EL_GAMMA      &uc UC_EL_ETA   &uc UC_EL_XI   &uc UC_EL_KAPPA          &uc UC_EL_LAMBDA   &uc UC_SQUARE_ROOT &none
+   &none &uc UC_EL_ZETA         &uc UC_EL_CHI     &uc UC_EL_PSI   &uc UC_EL_OMEGA &uc UC_EL_BETA       &uc UC_EL_NU    &uc UC_EL_MU   &uc UC_PLUS_MINUS_SIGN   &uc UC_ELEMENT_OF  &uc UC_NABLA       &none
+                                                                    &trans &none &none                      &kp LSHFT &none &trans
+                >;
+              };
         };
 };
